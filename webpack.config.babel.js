@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
 import fs from 'fs';
@@ -15,13 +14,6 @@ const plugins = [
   }),
   new ExtractTextPlugin('[name].bundle.css'),
 ];
-
-if (!dev) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin());
-  plugins.push(new OptimizeCssAssetsPlugin({
-    assetNameRegExp: /\.css$/,
-  }));
-}
 
 export default {
   context: __dirname,
