@@ -6,7 +6,7 @@ Examples for react-jPlayer
 ```
 git clone https://github.com/MartinDawson/react-jPlayerExamples.git
 
-cd jPlayer/[projectName]
+cd jPlayers/[projectName]
 
 npm install
 
