@@ -2,30 +2,17 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
-import fs from 'fs';
-
-const dev = process.env.NODE_ENV !== 'production';
-
-const plugins = [
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-    },
-  }),
-  new ExtractTextPlugin('[name].bundle.css'),
-];
 
 export default {
   context: __dirname,
   entry: {
     example: './src/app.jsx',
   },
-  devtool: dev ? 'inline-sourcemap' : false,
   output: {
-    path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
     filename: '[name].bundle.js',
   },
+  devtool: 'inline-sourcemap',
   devServer: {
     historyApiFallback: true,
   },
@@ -35,7 +22,6 @@ export default {
         test: /\.jsx?$/,
         include: [
           path.resolve(__dirname, 'src'),
-          fs.realpathSync(`${__dirname}/node_modules/react-jplayer`),
         ],
         loader: 'babel-loader',
       },
@@ -56,17 +42,16 @@ export default {
           }],
         }),
       },
-      {
-        test: /\.(woff2?|eot|ttf|svg)(\?[\s\S]+)?$/,
-        loader: 'url-loader?limit=100000',
-      },
-      {
-        test: /\.(jpg)$/,
-        loader: 'file-loader',
-      },
     ],
   },
-  plugins,
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
+    new ExtractTextPlugin('[name].bundle.css'),
+  ],
   resolve: {
     extensions: ['.js', '.jsx'],
   },

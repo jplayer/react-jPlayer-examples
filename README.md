@@ -1,7 +1,12 @@
-### Run
+# react-jPlayerExamples
+Examples for react-jPlayer
+
+### Run jPlayer Examples
 
 ```
-git clone https://github.com/MartinDawson/react-jPlayer-basic.git
+git clone https://github.com/MartinDawson/react-jPlayerExamples.git
+
+cd jPlayer/[projectName]
 
 npm install
 
