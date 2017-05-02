@@ -1,4 +1,4 @@
-# react-jPlayerExamples
+# react-jPlayer-examples
 Examples for react-jPlayer
 
 ### Run jPlayer Examples
