@@ -4,7 +4,7 @@ Examples for react-jPlayer
 ### Run jPlayer Examples
 
 ```
-git clone https://github.com/MartinDawson/react-jPlayerExamples.git
+git clone https://github.com/MartinDawson/react-jPlayer-examples.git
 
 cd jPlayers/[projectName]
 
