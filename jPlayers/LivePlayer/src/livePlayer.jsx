@@ -1,6 +1,6 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
-import { connect, JPlayer, Gui, SeekBar,
+import JPlayer, { connect, Gui, SeekBar,
   Audio, Title, FullScreen, Mute, Play,
   VolumeBar, Duration, CurrentTime, BrowserUnsupported,
  } from 'react-jplayer';

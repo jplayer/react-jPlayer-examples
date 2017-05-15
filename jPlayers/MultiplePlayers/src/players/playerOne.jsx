@@ -1,14 +1,14 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
-import { connect, JPlayer, Gui, SeekBar, BufferBar,
+import JPlayer, { connect, Gui, SeekBar, BufferBar,
   Poster, Audio, Title, FullScreen, Mute, Play, PlayBar, Repeat,
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
  } from 'react-jplayer';
 
 const PlayerOne = props => (
-  <JPlayer className="jp-sleek" style={!props.options.fullScreen ? { position: 'relative', top: '100px' } : null}>
+  <JPlayer className="jp-sleek" style={!props.jPlayers.PlayerOne.fullScreen ? { position: 'relative', top: '100px' } : null}>
     <Audio />
-    <Gui style={!props.options.fullScreen ? { bottom: 'auto', position: 'static' } : null}>
+    <Gui style={!props.jPlayers.PlayerOne.fullScreen ? { bottom: 'auto', position: 'static' } : null}>
       <div className="jp-controls jp-icon-controls">
         <Play><i className="fa">{/* Icon set in css*/}</i></Play>
         <Repeat><i className="fa fa-repeat" /></Repeat>
@@ -41,7 +41,6 @@ const PlayerOne = props => (
     </Gui>
   </JPlayer>
 );
-
 
 const options = {
   id: 'PlayerOne',
