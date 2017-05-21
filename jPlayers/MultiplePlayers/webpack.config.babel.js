@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
+import fs from 'fs';
 
 export default {
   context: __dirname,
@@ -22,6 +23,7 @@ export default {
         test: /\.jsx?$/,
         include: [
           path.resolve(__dirname, 'src'),
+          fs.realpathSync(`${__dirname}/node_modules/react-jplayer`),
         ],
         loader: 'babel-loader',
       },
