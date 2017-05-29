@@ -4,7 +4,7 @@ Examples for react-jPlayer and react-jPlaylist
 ### Run jPlayer Examples
 
 ```
-git clone https://github.com/MartinDawson/react-jPlayer-examples.git
+git clone https://github.com/jPlayer/react-jPlayer-examples.git
 
 cd jPlayers/[projectName]
 
@@ -18,7 +18,7 @@ open http://localhost:8080/
 ### Run jPlaylist Examples
 
 ```
-git clone https://github.com/MartinDawson/react-jPlayer-examples.git
+git clone https://github.com/jPlayer/react-jPlayer-examples.git
 
 cd jPlaylists/[projectName]
 
