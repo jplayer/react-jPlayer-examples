@@ -1,9 +1,10 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
-import JPlayer, { Gui, SeekBar, BufferBar,
+import JPlayer, {
+  initializeOptions, Gui, SeekBar, BufferBar,
   Poster, Audio, Title, FullScreen, Mute, Play, PlayBar, Repeat,
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
- } from 'react-jplayer';
+} from 'react-jplayer';
 
 const defaultOptions = {
   id: 'FooterPlayer',
@@ -18,8 +19,10 @@ const defaultOptions = {
   },
 };
 
+initializeOptions(defaultOptions);
+
 const FooterPlayer = () => (
-  <JPlayer options={defaultOptions} className="jp-sleek">
+  <JPlayer id={defaultOptions.id} className="jp-sleek">
     <Audio />
     <Gui>
       <div className="jp-controls jp-icon-controls">

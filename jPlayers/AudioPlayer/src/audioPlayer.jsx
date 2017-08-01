@@ -1,11 +1,12 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
-import JPlayer, { Gui, SeekBar, BufferBar,
+import JPlayer, {
+  initializeOptions, Gui, SeekBar, BufferBar,
   Poster, Audio, Title, FullScreen, Mute, Play, PlayBar, Repeat,
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
- } from 'react-jplayer';
+} from 'react-jplayer';
 
-const defaultOptions = {
+const defaultOptions = initializeOptions({
   id: 'AudioPlayer',
   keyEnabled: true,
   verticalVolume: true,
@@ -18,7 +19,7 @@ const defaultOptions = {
     },
     free: true,
   },
-};
+});
 
 const AudioPlayer = () => (
   <JPlayer options={defaultOptions} className="jp-sleek">

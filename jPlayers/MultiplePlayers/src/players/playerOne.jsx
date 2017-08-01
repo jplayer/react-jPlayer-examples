@@ -1,10 +1,11 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
 import { connect } from 'react-redux';
-import JPlayer, { Gui, SeekBar, BufferBar,
+import JPlayer, {
+  initializeOptions, Gui, SeekBar, BufferBar,
   Poster, Audio, Title, FullScreen, Mute, Play, PlayBar, Repeat,
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
- } from 'react-jplayer';
+} from 'react-jplayer';
 
 const defaultOptions = {
   id: 'PlayerOne',
@@ -20,13 +21,15 @@ const defaultOptions = {
   },
 };
 
+initializeOptions(defaultOptions);
+
 const mapDispatchToProps = ({ jPlayers }) => ({
   fullScreen: jPlayers.PlayerOne.fullScreen,
 });
 
 const PlayerOne = ({ fullScreen }) => (
   <JPlayer
-    options={defaultOptions}
+    id={defaultOptions.id}
     className="jp-sleek"
     style={!fullScreen ? { position: 'relative', top: '100px' } : null}
   >
