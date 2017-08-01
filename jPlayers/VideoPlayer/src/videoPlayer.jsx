@@ -1,11 +1,28 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
-import JPlayer, { connect, Gui, SeekBar, BufferBar,
+import JPlayer, { Gui, SeekBar, BufferBar,
   Poster, Video, Title, FullScreen, Mute, Play, PlayBar, Repeat,
   VolumeBar, Duration, CurrentTime, BrowserUnsupported } from 'react-jplayer';
 
+
+const defaultOptions = {
+  id: 'VideoPlayer',
+  keyEnabled: true,
+  verticalVolume: true,
+  media: {
+    artist: 'peach.blender',
+    title: 'Big Buck Bunny Trailer',
+    sources: {
+      m4v: 'http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v',
+      ogv: 'http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv',
+      webmv: 'http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm',
+    },
+    poster: 'http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png',
+  },
+};
+
 const VideoPlayer = () => (
-  <JPlayer className="jp-sleek">
+  <JPlayer options={defaultOptions} className="jp-sleek">
     <div className="jp-media">
       <Poster />
       <Video />
@@ -42,20 +59,4 @@ const VideoPlayer = () => (
   </JPlayer>
 );
 
-const options = {
-  id: 'VideoPlayer',
-  keyEnabled: true,
-  verticalVolume: true,
-  media: {
-    artist: 'peach.blender',
-    title: 'Big Buck Bunny Trailer',
-    sources: {
-      m4v: 'http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v',
-      ogv: 'http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv',
-      webmv: 'http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm',
-    },
-    poster: 'http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png',
-  },
-};
-
-export default connect(VideoPlayer, options);
+export default VideoPlayer;

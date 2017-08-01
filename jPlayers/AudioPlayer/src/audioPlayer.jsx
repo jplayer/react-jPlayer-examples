@@ -1,12 +1,27 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
-import JPlayer, { connect, Gui, SeekBar, BufferBar,
+import JPlayer, { Gui, SeekBar, BufferBar,
   Poster, Audio, Title, FullScreen, Mute, Play, PlayBar, Repeat,
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
  } from 'react-jplayer';
 
+const defaultOptions = {
+  id: 'AudioPlayer',
+  keyEnabled: true,
+  verticalVolume: true,
+  media: {
+    title: 'Bubble',
+    artist: 'Miaow',
+    sources: {
+      m4a: 'http://jplayer.org/audio/m4a/Miaow-07-Bubble.m4a',
+      oga: 'http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg',
+    },
+    free: true,
+  },
+};
+
 const AudioPlayer = () => (
-  <JPlayer className="jp-sleek">
+  <JPlayer options={defaultOptions} className="jp-sleek">
     <Audio />
     <Gui>
       <div className="jp-controls jp-icon-controls">
@@ -42,19 +57,4 @@ const AudioPlayer = () => (
   </JPlayer>
 );
 
-const options = {
-  id: 'AudioPlayer',
-  keyEnabled: true,
-  verticalVolume: true,
-  media: {
-    title: 'Bubble',
-    artist: 'Miaow',
-    sources: {
-      m4a: 'http://jplayer.org/audio/m4a/Miaow-07-Bubble.m4a',
-      oga: 'http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg',
-    },
-    free: true,
-  },
-};
-
-export default connect(AudioPlayer, options);
+export default AudioPlayer;

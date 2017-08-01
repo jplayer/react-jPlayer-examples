@@ -1,12 +1,25 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
-import JPlayer, { connect, Gui, SeekBar, BufferBar,
+import JPlayer, { Gui, SeekBar, BufferBar,
   Poster, Audio, Title, FullScreen, Mute, Play, PlayBar, Repeat,
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
  } from 'react-jplayer';
 
+const defaultOptions = {
+  id: 'FooterPlayer',
+  verticalVolume: true,
+  media: {
+    title: 'Tempered Song',
+    artist: 'Miaow',
+    sources: {
+      mp3: 'http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3',
+      oga: 'http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg',
+    },
+  },
+};
+
 const FooterPlayer = () => (
-  <JPlayer className="jp-sleek">
+  <JPlayer options={defaultOptions} className="jp-sleek">
     <Audio />
     <Gui>
       <div className="jp-controls jp-icon-controls">
@@ -42,18 +55,4 @@ const FooterPlayer = () => (
   </JPlayer>
 );
 
-
-const options = {
-  id: 'FooterPlayer',
-  verticalVolume: true,
-  media: {
-    title: 'Tempered Song',
-    artist: 'Miaow',
-    sources: {
-      mp3: 'http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3',
-      oga: 'http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg',
-    },
-  },
-};
-
-export default connect(FooterPlayer, options);
+export default FooterPlayer;

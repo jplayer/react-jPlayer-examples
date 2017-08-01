@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
-import { initialState, reducer as jPlayers } from 'react-jplayer';
+import { reducer as jPlayers } from 'react-jplayer';
 
 // Styles the jPlayer to look nice
 import 'react-jplayer/src/less/skins/sleek.less';
@@ -13,12 +13,7 @@ import PlayerOne from './players/playerOne';
 import FooterPlayer from './players/footerPlayer';
 
 /* Pass the jPlayer reducer and it's initialStates to the store */
-const store = createStore(combineReducers({ jPlayers }), { jPlayers:
-  initialState([
-    PlayerOne,
-    FooterPlayer,
-  ]),
-});
+const store = createStore(combineReducers({ jPlayers }));
 
 /* Wrap our player in the Redux Provider and render the jPlayers.
 The provider should go at the root of your App, just like Redux documentation recommends,
