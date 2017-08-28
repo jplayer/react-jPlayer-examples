@@ -44,6 +44,10 @@ export default {
           }],
         }),
       },
+      {
+        test: /\.(vtt)$/,
+        loader: 'file-loader?name=[path][name].[ext]',
+      },
     ],
   },
   plugins: [

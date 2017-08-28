@@ -1,9 +1,12 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
-import JPlayer, { Gui, SeekBar, BufferBar,
+import JPlayer, {
+  initializeOptions, Gui, SeekBar, BufferBar,
   Poster, Video, Title, FullScreen, Mute, Play, PlayBar, Repeat,
-  VolumeBar, Duration, CurrentTime, BrowserUnsupported } from 'react-jplayer';
+  VolumeBar, Duration, CurrentTime, BrowserUnsupported,
+} from 'react-jplayer';
 
+import subtitles from '../assets/sampleSubtitles.vtt';
 
 const defaultOptions = {
   id: 'VideoPlayer',
@@ -18,18 +21,29 @@ const defaultOptions = {
       webmv: 'http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm',
     },
     poster: 'http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png',
+    tracks: [
+      {
+        default: true,
+        kind: 'subtitles',
+        src: subtitles,
+        label: 'Video Subtitles',
+        srclang: 'en',
+      },
+    ],
   },
 };
 
+initializeOptions(defaultOptions);
+
 const VideoPlayer = () => (
-  <JPlayer options={defaultOptions} className="jp-sleek">
+  <JPlayer id={defaultOptions.id} className="jp-sleek">
     <div className="jp-media">
       <Poster />
       <Video />
     </div>
     <Gui>
       <div className="jp-controls jp-icon-controls">
-        <Play><i className="fa">{/* Icon set in css*/}</i></Play>
+        <Play><i className="fa">{/* Icon set in css */}</i></Play>
         <Repeat><i className="fa fa-repeat" /></Repeat>
         <div className="jp-progress">
           <SeekBar>
@@ -41,7 +55,7 @@ const VideoPlayer = () => (
         </div>
         <div className="jp-volume-container">
           <Mute>
-            <i className="fa">{/* Icon set in css*/}</i>
+            <i className="fa">{/* Icon set in css */}</i>
           </Mute>
           <div className="jp-volume-slider">
             <div className="jp-volume-bar-container">
