@@ -7,6 +7,8 @@ import JPlayer, {
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
 } from 'react-jplayer';
 
+import '../less/playerOne.less';
+
 const defaultOptions = {
   id: 'PlayerOne',
   verticalVolume: true,
@@ -24,19 +26,15 @@ const defaultOptions = {
 initializeOptions(defaultOptions);
 
 const mapDispatchToProps = ({ jPlayers }) => ({
-  fullScreen: jPlayers.PlayerOne.fullScreen,
+  jPlayerClass: jPlayers.PlayerOne.fullScreen ? 'jp-sleek' : 'jp-sleek jp-playerOne',
 });
 
-const PlayerOne = ({ fullScreen }) => (
-  <JPlayer
-    id={defaultOptions.id}
-    className="jp-sleek"
-    style={!fullScreen ? { position: 'relative', top: '100px' } : null}
-  >
+const PlayerOne = ({ jPlayerClass }) => (
+  <JPlayer id={defaultOptions.id} className={jPlayerClass}>
     <Audio />
-    <Gui style={!fullScreen ? { bottom: 'auto', position: 'static' } : null}>
+    <Gui>
       <div className="jp-controls jp-icon-controls">
-        <Play><i className="fa">{/* Icon set in css*/}</i></Play>
+        <Play><i className="fa">{/* Icon set in css */}</i></Play>
         <Repeat><i className="fa fa-repeat" /></Repeat>
         <div className="jp-progress">
           <SeekBar>
@@ -48,7 +46,7 @@ const PlayerOne = ({ fullScreen }) => (
         </div>
         <div className="jp-volume-container">
           <Mute>
-            <i className="fa">{/* Icon set in css*/}</i>
+            <i className="fa">{/* Icon set in css */}</i>
           </Mute>
           <div className="jp-volume-slider">
             <div className="jp-volume-bar-container">

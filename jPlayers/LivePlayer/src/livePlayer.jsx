@@ -1,9 +1,9 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
-import JPlayer, { Gui, SeekBar,
+import JPlayer, {
+  initializeOptions, Gui,
   Audio, Title, FullScreen, Mute, Play,
-  VolumeBar, Duration, CurrentTime, BrowserUnsupported,
- } from 'react-jplayer';
+  VolumeBar, CurrentTime, BrowserUnsupported,
+} from 'react-jplayer';
 
 const defaultOptions = {
   id: 'LivePlayer',
@@ -17,21 +17,20 @@ const defaultOptions = {
   },
 };
 
+initializeOptions(defaultOptions);
+
 const LivePlayer = () => (
-  <JPlayer options={defaultOptions} className="jp-sleek">
+  <JPlayer id={defaultOptions.id} className="jp-sleek">
     <Audio />
     <Gui>
       <div className="jp-controls jp-icon-controls">
-        <Play><i className="fa">{/* Icon set in css*/}</i></Play>
+        <Play><i className="fa">{/* Icon set in css */}</i></Play>
         <div className="jp-progress">
-          <SeekBar>
-            <CurrentTime />
-            <Duration />
-          </SeekBar>
+          <CurrentTime />
         </div>
         <div className="jp-volume-container">
           <Mute>
-            <i className="fa">{/* Icon set in css*/}</i>
+            <i className="fa">{/* Icon set in css */}</i>
           </Mute>
           <div className="jp-volume-slider">
             <div className="jp-volume-bar-container">

@@ -1,9 +1,8 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import JPlayer, {
   initializeOptions, Gui, SeekBar, BufferBar,
   Poster, Video, Title, FullScreen, Mute, Play, PlayBar, Repeat,
-  VolumeBar, Duration, CurrentTime, BrowserUnsupported,
+  VolumeBar, PlaybackRateBar, Duration, CurrentTime, BrowserUnsupported,
 } from 'react-jplayer';
 
 import subtitles from '../assets/sampleSubtitles.vtt';
@@ -64,6 +63,7 @@ const VideoPlayer = () => (
           </div>
         </div>
         <FullScreen><i className="fa fa-expand" /></FullScreen>
+        <PlaybackRateBar />
         <div className="jp-title-container">
           <Title />
         </div>

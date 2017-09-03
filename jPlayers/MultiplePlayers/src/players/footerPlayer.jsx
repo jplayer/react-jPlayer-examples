@@ -1,9 +1,9 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import JPlayer, {
   initializeOptions, Gui, SeekBar, BufferBar,
   Poster, Audio, Title, FullScreen, Mute, Play, PlayBar, Repeat,
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
+  PlaybackRateBar,
 } from 'react-jplayer';
 
 const defaultOptions = {
@@ -26,7 +26,7 @@ const FooterPlayer = () => (
     <Audio />
     <Gui>
       <div className="jp-controls jp-icon-controls">
-        <Play><i className="fa">{/* Icon set in css*/}</i></Play>
+        <Play><i className="fa">{/* Icon set in css */}</i></Play>
         <Repeat><i className="fa fa-repeat" /></Repeat>
         <div className="jp-progress">
           <SeekBar>
@@ -38,7 +38,7 @@ const FooterPlayer = () => (
         </div>
         <div className="jp-volume-container">
           <Mute>
-            <i className="fa">{/* Icon set in css*/}</i>
+            <i className="fa">{/* Icon set in css */}</i>
           </Mute>
           <div className="jp-volume-slider">
             <div className="jp-volume-bar-container">
@@ -48,6 +48,7 @@ const FooterPlayer = () => (
         </div>
         <FullScreen><i className="fa fa-expand" /></FullScreen>
         <Download><i className="fa fa-download" /></Download>
+        <PlaybackRateBar />
         <div className="jp-title-container">
           <Poster />
           <Title />
