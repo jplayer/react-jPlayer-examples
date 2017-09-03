@@ -1,11 +1,14 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
-import { Gui, SeekBar, BufferBar,
+import {
+  Gui, SeekBar, BufferBar,
   Poster, Video, Title, FullScreen, Mute, Play, PlayBar,
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
- } from 'react-jplayer';
-import JPlaylist, { connect, Playlist, Shuffle, Next, Previous, Repeat,
-  TogglePlaylist, Remove, MediaLink, Title as PlaylistTitle } from 'react-jplaylist';
+} from 'react-jplayer';
+import JPlaylist, {
+  connect, Playlist, Shuffle, Next, Previous, Repeat,
+  TogglePlaylist, Remove, MediaLink, Title as PlaylistTitle
+} from 'react-jplaylist';
 
 const VideoPlaylist = props => (
   <JPlaylist className="jp-sleek">
