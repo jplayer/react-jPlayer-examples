@@ -18,6 +18,7 @@ const jPlaylistOptions = {
   hidePlaylist: true,
   playlist: [
     {
+      id: 0,
       title: 'Bubble',
       artist: 'Miaow',
       sources: {
@@ -27,6 +28,7 @@ const jPlaylistOptions = {
       free: true,
     },
     {
+      id: 1,
       title: 'Tempered Song',
       artist: 'Miaow',
       sources: {
@@ -35,6 +37,7 @@ const jPlaylistOptions = {
       },
     },
     {
+      id: 2,
       title: 'Cro Magnon Man',
       artist: 'The Stark Palace',
       sources: {
