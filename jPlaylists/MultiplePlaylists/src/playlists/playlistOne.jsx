@@ -44,7 +44,7 @@ const jPlaylistOptions = {
 
 initializeOptions(jPlayerOptions, jPlaylistOptions);
 
-const mapDispatchToProps = ({ jPlayers }) => ({
+const mapStateToProps = ({ jPlayers }) => ({
   jPlayerClass: jPlayers.PlaylistOne.fullScreen ? 'jp-sleek' : 'jp-sleek jp-playerOne',
 });
 
@@ -106,4 +106,4 @@ PlaylistOne.propTypes = {
   jPlayerClass: PropTypes.string.isRequired,
 };
 
-export default connect(mapDispatchToProps)(PlaylistOne);
+export default connect(mapStateToProps)(PlaylistOne);

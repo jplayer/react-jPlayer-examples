@@ -25,7 +25,7 @@ const defaultOptions = {
 
 initializeOptions(defaultOptions);
 
-const mapDispatchToProps = ({ jPlayers }) => ({
+const mapStateToProps = ({ jPlayers }) => ({
   jPlayerClass: jPlayers.PlayerOne.fullScreen ? 'jp-sleek' : 'jp-sleek jp-playerOne',
 });
 
@@ -70,4 +70,4 @@ PlayerOne.propTypes = {
   jPlayerClass: PropTypes.string.isRequired,
 };
 
-export default connect(mapDispatchToProps)(PlayerOne);
+export default connect(mapStateToProps)(PlayerOne);
