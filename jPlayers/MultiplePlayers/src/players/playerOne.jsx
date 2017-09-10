@@ -1,5 +1,5 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import JPlayer, {
   initializeOptions, Gui, SeekBar, BufferBar,
@@ -65,5 +65,9 @@ const PlayerOne = ({ jPlayerClass }) => (
     </Gui>
   </JPlayer>
 );
+
+PlayerOne.propTypes = {
+  jPlayerClass: PropTypes.string.isRequired,
+};
 
 export default connect(mapDispatchToProps)(PlayerOne);

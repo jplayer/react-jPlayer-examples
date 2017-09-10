@@ -36,7 +36,7 @@ initializeOptions(defaultOptions);
 
 const VideoPlayer = () => (
   <JPlayer id={defaultOptions.id} className="jp-sleek">
-    <div className="jp-media">
+    <div className="jp-media-container">
       <Poster />
       <Video />
     </div>
