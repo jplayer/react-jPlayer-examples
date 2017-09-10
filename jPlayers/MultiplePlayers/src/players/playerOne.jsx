@@ -1,16 +1,40 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
-import JPlayer, { connect, Gui, SeekBar, BufferBar,
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import JPlayer, {
+  initializeOptions, Gui, SeekBar, BufferBar,
   Poster, Audio, Title, FullScreen, Mute, Play, PlayBar, Repeat,
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
- } from 'react-jplayer';
+} from 'react-jplayer';
 
-const PlayerOne = props => (
-  <JPlayer className="jp-sleek" style={!props.jPlayers.PlayerOne.fullScreen ? { position: 'relative', top: '100px' } : null}>
+import '../less/playerOne.less';
+
+const defaultOptions = {
+  id: 'PlayerOne',
+  verticalVolume: true,
+  media: {
+    title: 'Bubble',
+    artist: 'Miaow',
+    sources: {
+      m4a: 'http://jplayer.org/audio/m4a/Miaow-07-Bubble.m4a',
+      oga: 'http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg',
+    },
+    free: true,
+  },
+};
+
+initializeOptions(defaultOptions);
+
+const mapStateToProps = ({ jPlayers }) => ({
+  jPlayerClass: jPlayers.PlayerOne.fullScreen ? 'jp-sleek' : 'jp-sleek jp-playerOne',
+});
+
+const PlayerOne = ({ jPlayerClass }) => (
+  <JPlayer id={defaultOptions.id} className={jPlayerClass}>
     <Audio />
-    <Gui style={!props.jPlayers.PlayerOne.fullScreen ? { bottom: 'auto', position: 'static' } : null}>
+    <Gui>
       <div className="jp-controls jp-icon-controls">
-        <Play><i className="fa">{/* Icon set in css*/}</i></Play>
+        <Play><i className="fa">{/* Icon set in css */}</i></Play>
         <Repeat><i className="fa fa-repeat" /></Repeat>
         <div className="jp-progress">
           <SeekBar>
@@ -22,7 +46,7 @@ const PlayerOne = props => (
         </div>
         <div className="jp-volume-container">
           <Mute>
-            <i className="fa">{/* Icon set in css*/}</i>
+            <i className="fa">{/* Icon set in css */}</i>
           </Mute>
           <div className="jp-volume-slider">
             <div className="jp-volume-bar-container">
@@ -42,18 +66,8 @@ const PlayerOne = props => (
   </JPlayer>
 );
 
-const options = {
-  id: 'PlayerOne',
-  verticalVolume: true,
-  media: {
-    title: 'Bubble',
-    artist: 'Miaow',
-    sources: {
-      m4a: 'http://jplayer.org/audio/m4a/Miaow-07-Bubble.m4a',
-      oga: 'http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg',
-    },
-    free: true,
-  },
+PlayerOne.propTypes = {
+  jPlayerClass: PropTypes.string.isRequired,
 };
 
-export default connect(PlayerOne, options);
+export default connect(mapStateToProps)(PlayerOne);

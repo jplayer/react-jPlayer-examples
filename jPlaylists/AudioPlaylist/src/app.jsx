@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
-import { initialState as jPlayerInitialState, reducer as jPlayers } from 'react-jplayer';
-import { initialState as jPlaylistInitialState, reducer as jPlaylists } from 'react-jplaylist';
+import { reducer as jPlayers } from 'react-jplayer';
+import { reducer as jPlaylists } from 'react-jplaylist';
 
-// Styles the jPlayer to look nice
+// Styles the jPlaylist to look nice
 import 'react-jplaylist/src/less/skins/sleek.less';
 // Styles Play/Pause/Mute etc when icons (<i />) are used for them
 import 'react-jplaylist/src/less/controls/iconControls.less';
@@ -13,17 +13,11 @@ import 'react-jplaylist/src/less/controls/iconControls.less';
 import AudioPlaylist from './audioPlaylist';
 
 /* Pass the jPlaylist reducer and it's initialStates to the store */
-const store = createStore(combineReducers({
-  jPlayers,
-  jPlaylists,
-}), {
-  jPlayers: jPlayerInitialState(AudioPlaylist),
-  jPlaylists: jPlaylistInitialState(AudioPlaylist),
-});
+const store = createStore(combineReducers({ jPlayers, jPlaylists }));
 
 /* Wrap our player in the Redux Provider and render the jPlaylist.
 The provider should go at the root of your App, just like Redux documentation recommends,
-so that all components below the Provider have access to the jPlayers state
+so that all components below the Provider have access to the jPlaylists state
 */
 ReactDOM.render((
   <Provider store={store}>

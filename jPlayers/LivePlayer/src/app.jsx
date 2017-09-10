@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
-import { initialState, reducer as jPlayers } from 'react-jplayer';
+import { reducer as jPlayers } from 'react-jplayer';
 
 // Styles the jPlayer to look nice
 import 'react-jplayer/src/less/skins/sleek.less';
@@ -12,7 +12,7 @@ import 'react-jplayer/src/less/controls/iconControls.less';
 import LivePlayer from './livePlayer';
 
 /* Pass the jPlayer reducer and it's initialStates to the store */
-const store = createStore(combineReducers({ jPlayers }), { jPlayers: initialState(LivePlayer) });
+const store = createStore(combineReducers({ jPlayers }));
 
 /* Wrap our player in the Redux Provider and render the jPlayer.
 The provider should go at the root of your App, just like Redux documentation recommends,

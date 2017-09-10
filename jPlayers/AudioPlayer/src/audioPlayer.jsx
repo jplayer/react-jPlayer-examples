@@ -1,16 +1,33 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
-import JPlayer, { connect, Gui, SeekBar, BufferBar,
+import JPlayer, {
+  initializeOptions, Gui, SeekBar, BufferBar,
   Poster, Audio, Title, FullScreen, Mute, Play, PlayBar, Repeat,
   VolumeBar, Duration, CurrentTime, Download, BrowserUnsupported,
- } from 'react-jplayer';
+} from 'react-jplayer';
+
+const defaultOptions = {
+  id: 'AudioPlayer',
+  keyEnabled: true,
+  verticalVolume: true,
+  media: {
+    title: 'Bubble',
+    artist: 'Miaow',
+    sources: {
+      m4a: 'http://jplayer.org/audio/m4a/Miaow-07-Bubble.m4a',
+      oga: 'http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg',
+    },
+    free: true,
+  },
+};
+
+initializeOptions(defaultOptions);
 
 const AudioPlayer = () => (
-  <JPlayer className="jp-sleek">
+  <JPlayer id={defaultOptions.id} className="jp-sleek">
     <Audio />
     <Gui>
       <div className="jp-controls jp-icon-controls">
-        <Play><i className="fa">{/* Icon set in css*/}</i></Play>
+        <Play><i className="fa">{/* Icon set in css */}</i></Play>
         <Repeat><i className="fa fa-repeat" /></Repeat>
         <div className="jp-progress">
           <SeekBar>
@@ -22,7 +39,7 @@ const AudioPlayer = () => (
         </div>
         <div className="jp-volume-container">
           <Mute>
-            <i className="fa">{/* Icon set in css*/}</i>
+            <i className="fa">{/* Icon set in css */}</i>
           </Mute>
           <div className="jp-volume-slider">
             <div className="jp-volume-bar-container">
@@ -42,19 +59,4 @@ const AudioPlayer = () => (
   </JPlayer>
 );
 
-const options = {
-  id: 'AudioPlayer',
-  keyEnabled: true,
-  verticalVolume: true,
-  media: {
-    title: 'Bubble',
-    artist: 'Miaow',
-    sources: {
-      m4a: 'http://jplayer.org/audio/m4a/Miaow-07-Bubble.m4a',
-      oga: 'http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg',
-    },
-    free: true,
-  },
-};
-
-export default connect(AudioPlayer, options);
+export default AudioPlayer;

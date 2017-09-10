@@ -1,25 +1,36 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
-import JPlayer, { connect, Gui, SeekBar,
+import JPlayer, {
+  initializeOptions, Gui,
   Audio, Title, FullScreen, Mute, Play,
-  VolumeBar, Duration, CurrentTime, BrowserUnsupported,
- } from 'react-jplayer';
+  VolumeBar, CurrentTime, BrowserUnsupported,
+} from 'react-jplayer';
+
+const defaultOptions = {
+  id: 'LivePlayer',
+  keyEnabled: true,
+  verticalVolume: true,
+  media: {
+    title: 'ABC Jazz',
+    sources: {
+      mp3: 'http://listen.radionomy.com/abc-jazz',
+    },
+  },
+};
+
+initializeOptions(defaultOptions);
 
 const LivePlayer = () => (
-  <JPlayer className="jp-sleek">
+  <JPlayer id={defaultOptions.id} className="jp-sleek">
     <Audio />
     <Gui>
       <div className="jp-controls jp-icon-controls">
-        <Play><i className="fa">{/* Icon set in css*/}</i></Play>
+        <Play><i className="fa">{/* Icon set in css */}</i></Play>
         <div className="jp-progress">
-          <SeekBar>
-            <CurrentTime />
-            <Duration />
-          </SeekBar>
+          <CurrentTime />
         </div>
         <div className="jp-volume-container">
           <Mute>
-            <i className="fa">{/* Icon set in css*/}</i>
+            <i className="fa">{/* Icon set in css */}</i>
           </Mute>
           <div className="jp-volume-slider">
             <div className="jp-volume-bar-container">
@@ -37,16 +48,4 @@ const LivePlayer = () => (
   </JPlayer>
 );
 
-const options = {
-  id: 'LivePlayer',
-  keyEnabled: true,
-  verticalVolume: true,
-  media: {
-    title: 'ABC Jazz',
-    sources: {
-      mp3: 'http://listen.radionomy.com/abc-jazz',
-    },
-  },
-};
-
-export default connect(LivePlayer, options);
+export default LivePlayer;
