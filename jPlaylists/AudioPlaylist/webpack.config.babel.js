@@ -25,7 +25,6 @@ export default {
           path.resolve(__dirname, 'src'),
           fs.realpathSync(`${__dirname}/node_modules/react-jplayer`),
           fs.realpathSync(`${__dirname}/node_modules/react-jplaylist`),
-          fs.realpathSync(`${__dirname}/node_modules/react-jplaylist/node_modules/react-jplayer`),
         ],
         loader: 'babel-loader',
       },
