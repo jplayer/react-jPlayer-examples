@@ -6,12 +6,7 @@ Examples for react-jPlayer and react-jPlaylist
 
 1. `git clone https://github.com/jPlayer/react-jPlayer-examples.git`
 
-2. 
-For the jPlayer examples: `cd jPlayers/[projectName]`
-
-OR
-
-For the jPlaylist examples: `cd jPlaylists/[projectName]`
+2. For the jPlayer examples: `cd jPlayers/[projectName]` OR for the jPlaylist examples: `cd jPlaylists/[projectName]`
 
 3. `npm install`
 
@@ -26,14 +21,8 @@ These examples include the .css and .js files from the `node_modules` in the .ht
 
 1. `git clone https://github.com/jPlayer/react-jPlayer-examples.git`
 
-2. 
-For the jPlayer example: `cd jPlayers/UMDPlayer`
-
-OR
-
-For the jPlaylist example: `cd jPlaylists/UMDPlaylist`
+2. For the jPlayer example: `cd jPlayers/UMDPlayer` OR for the jPlaylist example: `cd jPlaylists/UMDPlaylist`
 
 3. `npm install`
 
 4. open `index.html`
-
