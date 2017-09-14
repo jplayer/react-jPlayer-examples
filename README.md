@@ -1,30 +1,39 @@
 # react-jPlayer-examples
 Examples for react-jPlayer and react-jPlaylist
 
-### Run jPlayer Examples
+### Run jPlayer/jPlaylist Examples
+#### NPM examples (Audio/Video/Live/Multiple)
 
-```
-git clone https://github.com/jPlayer/react-jPlayer-examples.git
+1. `git clone https://github.com/jPlayer/react-jPlayer-examples.git`
 
-cd jPlayers/[projectName]
+2. 
+For the jPlayer examples: `cd jPlayers/[projectName]`
 
-npm install
+OR
 
-npm run dev
+For the jPlaylist examples: `cd jPlaylists/[projectName]`
 
-open http://localhost:8080/
-```
+3. `npm install`
 
-### Run jPlaylist Examples
+4. `npm run dev`
 
-```
-git clone https://github.com/jPlayer/react-jPlayer-examples.git
+5. open http://localhost:8080/ in your browser
 
-cd jPlaylists/[projectName]
+#### UMD example
+These examples are just to show how to use react-jPlayer without npm or even webpack.
+They just include the .css and .js files from `/dist/` directly into the .html file so they can be run in the browser directly.
+These examples include the .css and .js files from the `node_modules` in the .html file just for ease of use but you can just copy the files manually to your project and include them instead if you don't want to use npm at all.
 
-npm install
+1. `git clone https://github.com/jPlayer/react-jPlayer-examples.git`
 
-npm run dev
+2. 
+For the jPlayer example: `cd jPlayers/UMDPlayer`
 
-open http://localhost:8080/
-```
+OR
+
+For the jPlaylist example: `cd jPlaylists/UMDPlaylist`
+
+3. `npm install`
+
+4. open `index.html`
+

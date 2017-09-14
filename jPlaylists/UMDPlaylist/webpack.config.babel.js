@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import path from 'path';
-import fs from 'fs';
 
 export default {
   context: __dirname,
@@ -28,7 +27,7 @@ export default {
           path.resolve(__dirname, 'src'),
         ],
         loader: 'babel-loader',
-      }
+      },
     ],
   },
   plugins: [
