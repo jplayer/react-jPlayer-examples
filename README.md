@@ -25,4 +25,6 @@ These examples include the .css and .js files from the `node_modules` in the .ht
 
 3. `npm install`
 
-4. open `index.html`
+4. `npm run dist`
+
+5. open `public/index.html`
